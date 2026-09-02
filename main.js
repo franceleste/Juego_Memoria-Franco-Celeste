@@ -8,6 +8,7 @@ let primeraCarta = null;
 let segundaCarta = null;
 let contadorPuntos = document.querySelector(".contador");
 let puntos = 0;
+let parejasEncontradas = 0; 
 
 card.forEach((tarjeta) => {
   const cartaRandom = Math.floor(Math.random() * 12);
@@ -31,6 +32,13 @@ card.forEach((tarjeta) => {
         segundaCarta.style.pointerEvents = "none";
         puntos += 15;
         contadorPuntos.textContent = "Puntuación: " + puntos;
+
+        parejasEncontradas++; 
+
+        if (parejasEncontradas === 8) {
+            alert("¡Ganaste! Completaste el juego.");
+        }
+
         primeraCarta = null;
         segundaCarta = null;
         return contadorPuntos;
@@ -49,5 +57,3 @@ card.forEach((tarjeta) => {
     }
   });
 });
-
-console.log(contadorPuntos);
